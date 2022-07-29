@@ -1,71 +1,37 @@
-// agregar el simulador con sus variables
-    
-let importe = parseInt(prompt('Ingrese el importe a solicitar'))
-let cuota = parseInt(prompt('Ingrese la cantidad de cuotas con la que desea abonar el préstamo'))
 
-if (cuota >= 1 && cuota <= 6) {
-    let inte = importe * 0.15
-    let total = inte + importe
-    let c = total / cuota
-    alert('El importe SOLICITADO es: $' + importe + '\nEl importe TOTAL a abonar es: $' + total + ' en ' + cuota + ' cuotas de $' + c)
+//array de personas q solicitaron el prestamo
+const personas = ['Pamela', 'Sofia', 'Sebastian', 'Nicolas']
 
-} else if (cuota >= 7 && cuota <= 9) {
-    let inte = importe * 0.20
-    let total = inte + importe
-    let c = total / cuota
-    alert('El importe SOLICITADO es: $' + importe + '\nEl importe TOTAL a abonar es: $' + total + ' en ' + cuota + ' cuotas de $' + c)
+//Se agregan 3 personas más pero como Objetos
 
-} else if (cuota >= 10 && cuota <= 12) {
-    let inte = importe * 0.30
-    let total = inte + importe
-    let c = total / cuota
-    alert('El importe SOLICITADO es: $' + importe + '\nEl importe TOTAL a abonar es: $' + total + ' en ' + cuota + ' cuotas de $' + c)
-
-} else if (cuota >= 13 && cuota <= 18) {
-    let inte = importe * 0.40
-    let total = inte + importe
-    let c = total / cuota
-    alert('El importe SOLICITADO es: $' + importe + '\nEl importe TOTAL a abonar es: $' + total + ' en ' + cuota + ' cuotas de $' + c)
-
-} else if (cuota > 18) {
-    let inte = importe * 0.50
-    let total = inte + importe
-    let c = total / cuota
-    alert('El importe SOLICITADO es: $' + importe + '\nEl importe TOTAL a abonar es: $' + total + ' en ' + cuota + ' cuotas de $' + c)
-
-} else {
-    alert('ERROR! No se ingresaron los datos solicitados')
+function Persona(nombre, apellido, edad, telefono, importe) {
+    this.name = nombre
+    this.lastName = apellido
+    this.age = edad
+    this.phone = telefono
+    this.money = importe
+    this.saludar = function () {
+        console.log('Hola ' + this.name + ' gracias por completar tus datos, en breve nos comunicaremos con vos')
+    }
 }
 
+const persona1 = new Persona('Wendy', 'Avalos', 28, '4747-8888', 200000)
+const persona2 = new Persona('Agostina', 'Suarez', 25, '4747-999', 100000)
+const persona3 = new Persona('Pilar', 'Vinces', 35, '4747-0000', 150000)
 
-// Si quiere el prestamo, pedir los datos sino saludar
+console.log(persona1)
+console.log(persona2)
+console.log(persona3)
 
-let prestamo = parseInt(prompt('¿Desea solicitar el préstamo? \nSI: Ingrese 1 \nNO: Ingrese 2'))
-const nombre = []
-const telefono = []
-const valor = []
+persona1.saludar()
+persona2.saludar()
+persona3.saludar()
 
-switch (prestamo) {
-    case 1:
-        alert('Por favor ingresá los siguientes datos:')
-        let name = prompt("Nombre");
-        let phone = prompt("Teléfono");
-        let money = prompt("Importe a solicitar");
-        nombre.push(name);
-        telefono.push(phone);
-        valor.push(money);
+//Agrego los objetos a mi Array
+personas.push(persona1)
+personas.push(persona2)
+personas.push(persona3)
 
-        console.log(name);
-        console.log(phone);
-        console.log(money);
 
-        alert('Muchas gracias! en breve nos comunicaremos con vos!')
-        break;
+console.log(personas)
 
-    case 2:
-        alert('Muchas gracias! podes simular tu préstamo las veces que quieras')
-        break;
-}
-
-const lista = nombre.concat(telefono, valor)
-console.log(lista)
